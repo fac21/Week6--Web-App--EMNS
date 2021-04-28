@@ -1,8 +1,8 @@
 const { decodeBase64 } = require("bcryptjs");
 
-function getUser(name){
-  const SELECT_USER = `SELECT id, name, password FROM users WHERE name = $1`
-  return db.query(SELECT_USER, [name]).then((result)=> result.row[0])
+function getUser(username) {
+  const SELECT_USER = `SELECT id, username, password FROM users WHERE username = $1`;
+  return db.query(SELECT_USER, [username]).then((result) => result.row[0]);
 }
 
-module.exports={ getUser }
+module.exports = { getUser };
