@@ -57,5 +57,5 @@ COMMIT
 -- serach for location, find park, go into each suggested park and look up the comments. 
 -- What information we gonna need in every page? What would be the return value. 
 -- One user can post several tables, if they were in the same table they wouldnt be able. 
--- When we want a fixed list of data we put into different table. 
--- We have seperate tables to ensure data is not dublicated. 
+-- When we have a fixed list of data we put the data into different tables for navigating through existing data more easily i.e. when using a large pre-existing database of park names. 
+-- We have seperate tables to ensure data is not dublicated. s
