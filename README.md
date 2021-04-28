@@ -6,8 +6,7 @@
 
 ### SCHEMA
 
-<img width="539" alt="SQL-Sample-Database-Schema" src="https://user-images.githubusercontent.com/63476393/116397034-fbfb4b00-a81d-11eb-884e-9f0d5a6a1e2e.png">
-
+<img width="539" alt="SQL-Sample-Database-Schema" src="https://user-images.githubusercontent.com/63476393/116421800-1392fd80-a837-11eb-831c-7c04207f2657.png">
 
 - Facilitator: Sevda
 - User: Nafisa
