@@ -1,7 +1,7 @@
 # Week6--Web-App--EMNS
 
 
-### This week we aimed to learn about authentication, by buildong a web app that authenticates users and stores user-specific data in a PostgreSQL database.
+### This week we aimed to learn about authentication, by building a web app that authenticates users and stores user-specific data in a PostgreSQL database.
 
 
 ### SCHEMA
