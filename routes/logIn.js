@@ -58,7 +58,7 @@ function post(request,response) {
     .then(saveUserSession)
     .then((sid) => {
         response.cookie("sid", sid, COOKIE_OPTIONS)
-        response.redirect("/");
+        response.redirect("/parks");
     })
     .catch((error) => {
         console.error(error)

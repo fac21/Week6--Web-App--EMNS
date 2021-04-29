@@ -20,6 +20,8 @@ server.get("/log-in", logIn.get);
 server.post("/log-in", logIn.post);
 server.get("/", home.get);
 server.get("/parks", createEntry.get);
-server.post("/parks", createEntry.post);
+server.post("/parks", createEntry.post, () => {
+    console.log("postEnd")
+});
 
 server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
