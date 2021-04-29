@@ -22,10 +22,8 @@ function verifyUser(name, password) {
   });
 }
 
-function createUser(email, password, name) {
-  return bcrypt
-    .hash(password, 10)
-    .then((hash) => model.createUser(email, hash, name));
+function createUser(password, name) {
+  return bcrypt.hash(password, 10).then((hash) => model.createUser(hash, name));
 }
 
 function saveUserSession(user) {

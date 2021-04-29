@@ -33,16 +33,22 @@ function get(request, response) {
 
 function createPark(request, response) {
   const data = request.body;
+  const sid = request.signedCookies.sid;
+  console.log("sid", sid);
+  db.query(`select data from sessions where sid=${sid}`).then((result) =>
+    console.log("result", result)
+  );
   db.query(
     "INSERT INTO parks(park_name, location) VALUES($1, $2) RETURNING id", // return parks id
     [data.park, data.location]
   )
     .then(
-      (park_id) => {
-        console.log(park_id);
+      (queryResult) => {
+        const parkId = queryResult.rows[0].id;
+        console.log(parkId);
         db.query(
           "INSERT INTO park_comments(user_id, park_id, text_content) VALUES($1, $2, $3)",
-          [1, park_id, data.comment]
+          [1, parkId, data.comment]
         );
       }
       //   db.query("SELECT * from users(id) VALUES($1) RETURNING id", [])

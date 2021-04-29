@@ -1,6 +1,11 @@
 const { decodeBase64 } = require("bcryptjs");
 const db = require("./connection.js");
 
+function getUser(username) {
+  const SELECT_USER = `SELECT id, username, password FROM users WHERE username = $1`;
+  return db.query(SELECT_USER, [username]).then((result) => result.row[0]);
+}
+
 function createUser(hash, username) {
   const INSERT_USER = `
     INSERT INTO users (password, username) VALUES ($1, $2)
@@ -9,11 +14,6 @@ function createUser(hash, username) {
   return db
     .query(INSERT_USER, [hash, username])
     .then((result) => result.rows[0]);
-}
-
-function getUser(username) {
-  const SELECT_USER = `SELECT id, username, password FROM users WHERE username = $1`;
-  return db.query(SELECT_USER, [username]).then((result) => result.row[0]);
 }
 
 function getSession(sid) {
@@ -35,8 +35,3 @@ function createSession(sid, data) {
 }
 
 module.exports = { createUser, getUser, getSession, createSession };
-
-
-
-
-
