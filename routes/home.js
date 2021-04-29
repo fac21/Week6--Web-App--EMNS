@@ -17,6 +17,7 @@ function get(request, response) {
       </head>
 
       <body>
+        <h1>Hello ${session.user.username}</h1>
         <img src="/parklife.png">
         <form action="/log-out" method="POST">
           <button>Log out</button>
@@ -38,14 +39,14 @@ function get(request, response) {
     </head>
 
     <body>
+  <h1>Hello anonymous</h1>
       <img src="/parklife.png">
     <a href="/sign-up">Sign up</a>
     <span> | </span>
     <a href="/log-in">Log in</a>
   `);
-  }
+    }
 }
 
 
-
-module.exports = { get };
+module.exports = {get };
