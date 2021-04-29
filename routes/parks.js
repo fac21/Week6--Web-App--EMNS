@@ -18,9 +18,37 @@ function getParks(request, response) {
 
 
         const html =
-            ` <h2>Parks</h2>
-        <ul>${parkList} </ul>
-        <br> `
+            `
+            <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta name="description" content="Parklife">
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+          <style>
+          body {
+            background-color: #f58634;
+          }
+          
+          h1 {
+            text-align: center;
+            font-family: 'Montserrat';
+            color: #206a5d;
+
+            .parks {
+              font-family: 'Montserrat';
+              color: #206a5d;
+            }
+          }
+          </head>
+          </style>
+            <h1>Parks</h1>
+        <ul class="parks">${parkList} </ul>
+        <br> 
+        <a href="/">Home</a>
+        `
         response.send(html);
 
     })

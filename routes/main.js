@@ -5,7 +5,29 @@ function getLoginOptions(request, response) {
     if (sid) {
         model.getSession(sid).then((session) => {
             response.send(`
-        <h1>Hello ${session.user.name}</h1>
+            <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta name="description" content="Parklife">
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+          <style>
+          body {
+            background-color: #f58634;
+          }
+          
+          h1 {
+            text-align: center;
+            font-family: 'Montserrat';
+            color: #206a5d;
+          }
+          
+          </style>
+          <title>Parklife</title>
+      </head>
+        <h1>Hello Parklifer! Log out below</h1>
         <form action="/log-out" method="POST">
           <button>Log out</button>
         </form>
@@ -13,7 +35,27 @@ function getLoginOptions(request, response) {
         });
     } else {
         response.send(`
-    <h1>Hello anonymous</h1>
+        <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta name="description" content="Parklife">
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+          <style>
+          body {
+            background-color: #f58634;
+          }
+          
+          h1 {
+            text-align: center;
+            font-family: 'Montserrat';
+            color: #206a5d;
+          }
+          
+          </style>
+          <title>Parklife</title>
+      </head>
+    <h1>Hello Unknown Genius! Sign up here</h1>
     <a href="/sign-up">Sign up</a>
     <span> | </span>
     <a href="/log-in">Log in</a>
