@@ -17,6 +17,6 @@ server.get("/sign-up", signUp.get);
 server.post("/sign-up", signUp.post);
 server.get("/log-in", logIn.get);
 server.post("/log-in", logIn.post);
-server.get("/home", home.get);
+server.get("/", home.get);
 
 server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
