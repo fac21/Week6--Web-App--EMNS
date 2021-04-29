@@ -1,13 +1,11 @@
 const model = require("../database/model.js");
-const db = require("../database/connection.js");
 
-
-function get(request, response) {
+function getLoginOptions(request, response) {
     const sid = request.signedCookies.sid;
     if (sid) {
         model.getSession(sid).then((session) => {
             response.send(`
-        <h1>Hello ${session.user.username}</h1>
+        <h1>Hello ${session.user.name}</h1>
         <form action="/log-out" method="POST">
           <button>Log out</button>
         </form>
@@ -23,7 +21,4 @@ function get(request, response) {
     }
 }
 
-
-
-
-module.exports = {get };
+module.exports = { getLoginOptions };
