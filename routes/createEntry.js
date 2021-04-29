@@ -1,7 +1,7 @@
 const db = require("../database/connection.js");
 
 function get(request, response) {
-    response.send(`
+  response.send(`
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,25 +28,32 @@ function get(request, response) {
         
 </body>
 </html>
-    `)
-};
-
-function post(request, response) {
-    const data = request.body;
-    db.query(
-            "INSERT INTO parks(park_name, location) VALUES($1, $2)",
-            [data.park, data.location]
-        )
-            db.query(
-                "INSERT INTO park_comments(text_content) VALUES($1)",
-                [data.comment]
-            )
-   .catch((error) => {
-       console.log(error)
-   })
-        .then(() => {
-            response.redirect("/");
-        });
+    `);
 }
 
-module.exports = {get, post };
+function createPark(request, response) {
+  const data = request.body;
+  db.query(
+    "INSERT INTO parks(park_name, location) VALUES($1, $2) RETURNING id", // return parks id
+    [data.park, data.location]
+  )
+    .then(
+      (park_id) => {
+        console.log(park_id);
+        db.query(
+          "INSERT INTO park_comments(user_id, park_id, text_content) VALUES($1, $2, $3)",
+          [1, park_id, data.comment]
+        );
+      }
+      //   db.query("SELECT * from users(id) VALUES($1) RETURNING id", [])
+      // );
+    )
+    .catch((error) => {
+      console.log(error);
+    })
+    .then(() => {
+      response.redirect("/parks");
+    });
+}
+
+module.exports = { get, createPark };

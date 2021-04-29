@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS users, parks CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  username VARCHAR(255) NOT NULL,
+  username VARCHAR(255) NOT NULL UNIQUE, 
   password TEXT NOT NULL
 );
 
