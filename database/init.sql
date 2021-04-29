@@ -21,6 +21,8 @@ user_id INTEGER REFERENCES users(id) ON DELETE CASCADE, -- CASCADE means delete 
 text_content TEXT
 );
 
+
+
 INSERT INTO users (username, password) VALUES
   ('Michael', '$2a$10$vzgLAxSa1k293giKSbVWi.GgSGmb1JB/kD1qWIg.mrUlt7UwVDCWG'),
   ('Nafisa', '$2a$10$vzgLAxSa1k293giKSbVWi.GgSGmb1JB/kD1qWIg.mrUlt7UwVDCWQ'),

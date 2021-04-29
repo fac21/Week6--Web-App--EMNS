@@ -13,7 +13,7 @@ function get(request, response) {
 </head>
 <body>
     <h1>Recommend a park</h1>
-    <form action="/" method="POST">
+    <form action="/parks" method="POST">
       <label for="park">Park name</label>
       <input type="text" id="park" name="park">
 
@@ -33,17 +33,17 @@ function get(request, response) {
 
 function post(request, response) {
     const data = request.body;
-    const values = Object.values(data);
     db.query(
             "INSERT INTO parks(park_name, location) VALUES($1, $2)",
-            values
+            [data.park, data.location]
         )
-        .then(() => {
             db.query(
-                "INSERT INTO park_comments(text_content) VALUES($3)",
-                values
+                "INSERT INTO park_comments(text_content) VALUES($1)",
+                [data.comment]
             )
-        })
+   .catch((error) => {
+       console.log(error)
+   })
         .then(() => {
             response.redirect("/");
         });

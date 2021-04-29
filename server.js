@@ -18,7 +18,9 @@ server.get("/", home.get);
 server.get("/login", logIn.get);
 server.post("/login", logIn.post);
 server.get("/parks", createEntry.get);
-server.post("/parks", createEntry.post);
+server.post("/parks", createEntry.post, () => {
+    console.log("postEnd")
+});
 
 server.get("/sign-up", signUp.get)
 server.post("/sign-up", signUp.post)
