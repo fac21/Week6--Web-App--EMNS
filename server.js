@@ -4,7 +4,9 @@ const cookieParser = require("cookie-parser")
 const PORT = process.env.PORT || 3000;
 const dotenv = require("dotenv")
 dotenv.config();
+
 const home = require("./routes/home.js");
+const signUp = require("./routes/signUp.js")
 const logIn = require("./routes/logIn.js")
 const createEntry = require("./routes/createEntry.js")
 
@@ -17,6 +19,11 @@ server.get("/login", logIn.get);
 server.post("/login", logIn.post);
 server.get("/parks", createEntry.get);
 server.post("/parks", createEntry.post);
+
+server.get("/sign-up", signUp.get)
+server.post("/sign-up", signUp.post)
+
+
 
 
 server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
