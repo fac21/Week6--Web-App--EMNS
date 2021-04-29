@@ -1,9 +1,32 @@
+const model = require("../database/model.js");
 const db = require("../database/connection.js");
 
 
 function get(request, response) {
-    db.query(`select parks.park_name, parks.location, park_comments.text_content from parks 
-    left join park_comments on parks.id = park_comments.park_id`).then((result) => {
+  const sid = request.signedCookies.sid;
+  if (sid) {
+    model.getSession(sid).then((session) => {
+      response.send(`
+        <h1>Hello ${session.user.username}</h1>
+        <form action="/log-out" method="POST">
+          <button>Log out</button>
+        </form>
+      `);
+    });
+  } else {
+    response.send(`
+    <h1>Hello anonymous</h1>
+    <a href="/sign-up">Sign up</a>
+    <span> | </span>
+    <a href="/log-in">Log in</a>
+  `);
+  }
+}
+
+
+function get(request, response) {
+      db.query(`select parks.park_name, parks.location, park_comments.text_content from parks 
+        left join park_comments on parks.id = park_comments.park_id`).then((result) => {
         const parks = result.rows;
         console.log(parks)
         let parkList = "";
@@ -26,6 +49,5 @@ function get(request, response) {
 })
 }
 
-module.exports = {get };
 
-
+module.exports = { get };
