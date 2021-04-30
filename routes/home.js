@@ -1,46 +1,61 @@
 const model = require("../database/model.js");
-const db = require("../database/connection.js");
 
-
-function get(request, response) {
-  const sid = request.signedCookies.sid;
-  if (sid) {
-    model.getSession(sid).then((session) => {
-      response.send(`<!DOCTYPE html>
+function getLoginOptions(request, response) {
+    const sid = request.signedCookies.sid;
+    if (sid) {
+        model.getSession(sid).then((session) => {
+            response.send(`
+            <!DOCTYPE html>
       <html lang="en">
       <head>
           <meta charset="UTF-8">
           <meta http-equiv="X-UA-Compatible" content="IE=edge">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <meta name="description" content="Parklife">
-          <title>Park recommender</title>
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+          <style>
+          body {
+            background-color: #f58634;
+          }
+          
+          h1 {
+            text-align: center;
+            font-family: 'Montserrat';
+            color: #206a5d;
+          }
+          
+          </style>
+          <title>Parklife</title>
       </head>
-
-      <body>
-        <h1>Hello ${session.user.username}</h1>
-        <img src="/parklife.png">
+        <h1>Hello Parklifer! Log out below</h1>
         <form action="/log-out" method="POST">
           <button>Log out</button>
         </form>
-        </html>
-        </body
       `);
-    });
-  } else {
-    response.send(`
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Parklife">
-        <title>Park life</title>
-    </head>
-
-    <body>
-  <h1>Hello anonymous</h1>
-      <img src="/parklife.png">
+        });
+    } else {
+        response.send(`
+        <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta name="description" content="Parklife">
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+          <style>
+          body {
+            background-color: #f58634;
+          }
+          
+          h1 {
+            text-align: center;
+            font-family: 'Montserrat';
+            color: #206a5d;
+          }
+          
+          </style>
+          <title>Parklife</title>
+      </head>
+    <h1>Hello Unknown Genius! Sign up here</h1>
     <a href="/sign-up">Sign up</a>
     <span> | </span>
     <a href="/log-in">Log in</a>
@@ -48,5 +63,4 @@ function get(request, response) {
     }
 }
 
-
-module.exports = {get };
+module.exports = { getLoginOptions };
