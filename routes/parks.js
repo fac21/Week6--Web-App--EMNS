@@ -33,16 +33,31 @@ function getParks(request, response) {
           }
           
           h1 {
+            margin-top: 30%;
             text-align: center;
             font-family: 'Montserrat';
             color: #206a5d;
-
-            .parks {
-              font-family: 'Montserrat';
-              color: #206a5d;
-            }
           }
-          </head>
+
+          .parks {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            align-items: center;
+            font-family: 'Montserrat';
+            color: #206a5d; 
+            list-style: none;
+          }
+
+          a {
+            text-align: center;
+            font-family: 'Montserrat';
+            color: #206a5d;
+            display: flex;
+            justify-content: center;
+          }
+          
           </style>
             <h1>Parks</h1>
         <ul class="parks">${parkList} </ul>

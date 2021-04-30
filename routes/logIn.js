@@ -24,9 +24,24 @@ function get (request, response) {
           }
           
           h1 {
+            margin-top: 30%;
             text-align: center;
             font-family: 'Montserrat';
             color: #206a5d;
+          }
+
+          label {
+            text-align: center;
+            font-family: 'Montserrat';
+            color: #206a5d;
+          }
+      
+          form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
           }
           
           </style>

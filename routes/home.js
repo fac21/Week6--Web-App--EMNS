@@ -13,12 +13,13 @@ function get(request, response) {
           <meta http-equiv="X-UA-Compatible" content="IE=edge">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <meta name="description" content="Parklife">
-          <title>Park recommender</title>
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+          <title>Parklife</title>
       </head>
 
       <body>
         <h1>Hello ${session.user.username}</h1>
-        <img src="/parklife.png">
+        <img src="../public/parklife.png">
         <form action="/log-out" method="POST">
           <button>Log out</button>
         </form>
