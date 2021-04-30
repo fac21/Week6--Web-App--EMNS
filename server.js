@@ -24,7 +24,7 @@ server.use(cookieParser(process.env.COOKIE_SECRET));
 
 // server.use(express.static("public"));
 
-console.log(process.env.COOKIE_SECRET);
+
 
 
 server.get("/", home.getLoginOptions);

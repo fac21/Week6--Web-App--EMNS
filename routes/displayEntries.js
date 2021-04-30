@@ -1,20 +1,21 @@
 const db = require("../database/connection.js");
+const model = require("../database/model.js");
 
 function get(request, response) {
-    db.query(`select parks.park_name, parks.location, park_comments.text_content from parks 
-      left join park_comments on parks.id = park_comments.park_id`).then((result) => {
-      const parks = result.rows;
-      let parkList = "";
-      for (const park of parks) {
-          const {id, park_name, location, text_content} = park;
-          parkList += `
-          <li>${park_name}</li>
-          <li>${location}</li>
-          <li>${text_content}</li>
-       `
-      }
-  
-      
+  model.viewAllParks()
+  .then((result) => {
+    const parks = result.rows;
+    let parkList = "";
+    for (const park of parks) {
+        const {id, park_name, location, text_content} = park;
+        parkList += `
+        <li>${park_name}</li>
+        <li>${location}</li>
+        <li>${text_content}</li>
+     `
+    }
+
+
       const html =    
       ` <!DOCTYPE html>
       <html lang="en">
