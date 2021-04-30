@@ -34,7 +34,12 @@ function createSession(sid, data) {
     .then((result) => result.rows[0].sid);
 }
 
-module.exports = { createUser, getUser, getSession, createSession };
+function viewAllParks(request, response) {
+  return db.query(`select parks.park_name, parks.location, park_comments.text_content from parks 
+    left join park_comments on parks.id = park_comments.park_id`)
+}
+
+module.exports = { createUser, getUser, getSession, createSession, viewAllParks };
 
 
 
