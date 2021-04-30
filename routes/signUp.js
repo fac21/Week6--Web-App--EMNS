@@ -48,7 +48,6 @@ const auth = require("../auth");
   
   function post(request, response) {
     const { password, username } = request.body;
-    console.log(password, username)
     auth.createUser( password, username)
     .then(auth.saveUserSession)
     .then((sid) => {

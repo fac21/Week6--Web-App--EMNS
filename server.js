@@ -14,7 +14,7 @@ const displayEntries = require("./routes/displayEntries.js")
 // const staticHandler = express.static("public");
 
 const parks = require("./routes/parks.js")
-const main = require("./routes/main.js")
+
 
 
 server.use(express.urlencoded({ extended: false }));
@@ -27,7 +27,7 @@ server.use(cookieParser(process.env.COOKIE_SECRET));
 console.log(process.env.COOKIE_SECRET);
 
 
-server.get("/", main.getLoginOptions);
+server.get("/", home.getLoginOptions);
 server.get("/sign-up", signUp.get);
 server.post("/sign-up", signUp.post);
 server.get("/log-in", logIn.get);
