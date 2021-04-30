@@ -18,18 +18,32 @@ function get (request, response) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Parklife">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
-          <style>
-          body {
-            background-color: #f58634;
-          }
-          
-          h1 {
-            text-align: center;
-            font-family: 'Montserrat';
-            color: #206a5d;
-          }
-          
-          </style>
+    <style>
+    body {
+      background-color: #f58634;
+    }
+    
+    h1 {
+      margin-top: 30%;
+      text-align: center;
+      font-family: 'Montserrat';
+      color: #206a5d;
+    }
+    label {
+      text-align: center;
+      font-family: 'Montserrat';
+      color: #206a5d;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+    
+    </style>
     <title>Park recommender</title>
 </head>
 <body>
