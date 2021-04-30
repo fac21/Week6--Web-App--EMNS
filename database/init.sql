@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users, parks CASCADE;
+DROP TABLE IF EXISTS users, parks, park_comments CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
