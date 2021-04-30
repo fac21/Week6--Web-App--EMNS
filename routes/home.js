@@ -19,9 +19,19 @@ function getLoginOptions(request, response) {
           }
           
           h1 {
+            margin-top: 30%;
             text-align: center;
             font-family: 'Montserrat';
             color: #206a5d;
+          }
+
+
+          a {
+            text-align: center;
+            font-family: 'Montserrat';
+            color: #206a5d;
+            display: flex;
+            justify-content: center;
           }
           
           </style>
@@ -47,9 +57,17 @@ function getLoginOptions(request, response) {
           }
           
           h1 {
+            margin-top: 30%;
             text-align: center;
             font-family: 'Montserrat';
             color: #206a5d;
+          }
+          a {
+            text-align: center;
+            font-family: 'Montserrat';
+            color: #206a5d;
+            display: flex;
+            justify-content: center;
           }
           
           </style>
